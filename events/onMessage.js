@@ -19,7 +19,7 @@ function onMessage (client, msg) {
   )
 
   if (!target) return
-  target(client, msg)
+  target(client, msg, query)
 }
 
 module.exports = onMessage
