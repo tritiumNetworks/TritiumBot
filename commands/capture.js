@@ -1,9 +1,11 @@
 const argParser = require('arg')
 const puppeteer = require('puppeteer-core')
 const { MessageAttachment } = require('discord.js')
-const { readFileSync, unlinkSync } = require('fs')
+const { readFileSync, unlinkSync, existsSync, mkdirSync } = require('fs')
 const path = require('path').resolve()
 const uuid = require('uuid').v4
+
+if (!existsSync(path + '/capture')) mkdirSync(path + '/capture')
 
 /**
  * @param {import('../classes/Client')} client
@@ -31,4 +33,7 @@ async function fn (_, msg, query) {
 }
 
 module.exports = fn
+module.exports.etc = ' <주소>'
+module.exports.args = { '--width=Number / -w=Number': '가로 크기를 지정합니다', '--height=Number / -h=Number': '세로 크기를 지정합니다' }
 module.exports.aliases = ['chrome', 'capture']
+module.exports.description = '웹 사이트를 찍어 보내줍니다'

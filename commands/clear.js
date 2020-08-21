@@ -19,4 +19,6 @@ function fn (client, msg, query) {
 }
 
 module.exports = fn
+module.exports.args = { '--recursive / -r': '커멘드를 사용한 메세지까지 삭제합니다' }
 module.exports.aliases = ['clear', 'cls', '청소']
+module.exports.description = '봇 메세지를 삭제합니다'

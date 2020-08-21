@@ -25,4 +25,7 @@ async function fn (_, msg, query) {
 }
 
 module.exports = fn
+module.exports.etc = ' <url>'
+module.exports.args = { '--header=Key:Value / -h=Key:Value': '헤더를 지정합니다' }
 module.exports.aliases = ['http']
+module.exports.description = 'http get 신호를 보내고 응답을 출력합니다'
