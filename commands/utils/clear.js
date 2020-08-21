@@ -1,9 +1,9 @@
 const argParser = require('arg')
 
 /**
- * @param {import('../classes/Client')} client
+ * @param {import('../../classes/Client')} client
  * @param {import('discord.js').Message} msg
- * @param {import('../classes/Query')} query
+ * @param {import('../../classes/Query')} query
  */
 function fn (client, msg, query) {
   msg.channel.send('<a:__tri_loading:745878028093227118> 삭제중...')

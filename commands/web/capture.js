@@ -8,9 +8,9 @@ const uuid = require('uuid').v4
 if (!existsSync(path + '/capture')) mkdirSync(path + '/capture')
 
 /**
- * @param {import('../classes/Client')} client
+ * @param {import('../../classes/Client')} client
  * @param {import('discord.js').Message} msg
- * @param {import('../classes/Query')} query
+ * @param {import('../../classes/Query')} query
  */
 async function fn (_, msg, query) {
   const flags = argParser({ '--width': Number, '-w': '--width', '--height': Number, '-h': '--height' }, { argv: query.args, permissive: true })

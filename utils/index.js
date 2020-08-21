@@ -11,4 +11,10 @@ function readRecursively (dir, filelist = []) {
   return filelist
 }
 
-module.exports = { readRecursively }
+// from https://stackoverflow.com/a/3710226
+function isJsonStr (str) {
+  try { JSON.parse(str) } catch (e) { return false }
+  return true
+}
+
+module.exports = { readRecursively, isJsonStr }

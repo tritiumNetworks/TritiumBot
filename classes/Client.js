@@ -1,7 +1,7 @@
 const { resolve: path } = require('path')
 const { Client } = require('discord.js')
 const { existsSync } = require('fs')
-const { readRecursively } = require('../utils/readFiles')
+const { readRecursively } = require('../utils')
 
 class eClient extends Client {
   constructor () {

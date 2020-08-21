@@ -1,9 +1,9 @@
 const { MessageEmbed } = require('discord.js')
 
 /**
- * @param {import('../classes/Client')} client
+ * @param {import('../../classes/Client')} client
  * @param {import('discord.js').Message} msg
- * @param {import('../classes/Query')} query
+ * @param {import('../../classes/Query')} query
  */
 async function fn (client, msg, query) {
   const { commands } = client

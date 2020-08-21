@@ -1,9 +1,9 @@
 const argParser = require('arg')
 
 /**
- * @param {import('../classes/Client')} client
+ * @param {import('../../classes/Client')} client
  * @param {import('discord.js').Message} msg
- * @param {import('../classes/Query')} query
+ * @param {import('../../classes/Query')} query
  */
 async function fn (_, msg, query) {
   const str = query.args.filter((arg) => !arg.startsWith('-')).join(' ')
