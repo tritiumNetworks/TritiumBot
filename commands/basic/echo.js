@@ -5,9 +5,11 @@ const argParser = require('arg')
  * @param {import('discord.js').Message} msg
  * @param {import('../../classes/Query')} query
  */
-async function fn (_, msg, query) {
+async function fn (client, msg, query) {
   const str = query.args.filter((arg) => !arg.startsWith('-')).join(' ')
   const flags = argParser({ '--delete': Boolean, '-d': '--delete', '--timeout': Number, '-t': '--timeout' }, { argv: query.args, permissive: true })
+
+  if (str.length < 1) return msg.channel.send('저런! 사용방법이 잘못되었어요\n`' + client.settings.prefix + 'help echo`로 도움말을 보면 도움이 될꺼에요')
   const m = await msg.channel.send(str)
   if (flags['--delete'] && msg.deletable) msg.delete()
   if (flags['--timeout']) m.delete({ timeout: flags['--timeout'] * 1000 })

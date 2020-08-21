@@ -6,10 +6,13 @@ const { MessageEmbed } = require('discord.js')
  * @param {import('../../classes/Query')} query
  */
 async function fn (client, msg, query) {
-  const { commands } = client
+  let { commands } = client
   const m = await msg.channel.send('<a:__tri_loading:745878028093227118> 리스트 불러오는중...')
+  const str = query.args.filter((arg) => !arg.startsWith('-')).join(' ')
   const emb = new MessageEmbed({ color: 0x6bedd4 })
   emb.setAuthor(commands.length + '개의 커멘드 로드됨\n', 'https://cdn.discordapp.com/emojis/745878633624895599.gif')
+
+  if (str.length > 1) commands = commands.filter((cmd) => cmd.aliases.includes(str))
   commands.forEach((cmd) => {
     let title = client.settings.prefix + cmd.aliases[0] + (cmd.etc || '') + ' '
     Object.keys(cmd.args).forEach((arg) => {

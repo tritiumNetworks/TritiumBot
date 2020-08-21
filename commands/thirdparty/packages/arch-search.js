@@ -8,9 +8,11 @@ const argParser = require('arg')
  * @param {import('discord.js').Message} msg
  * @param {import('../../../classes/Query')} query
  */
-async function fn (_, msg, query) {
+async function fn (client, msg, query) {
   const flags = argParser({ '--aur': Boolean, '-a': '--aur' }, { argv: query.args, permissive: true })
   const str = query.args.filter((arg) => !arg.startsWith('-')).join(' ')
+
+  if (str.length < 1) return msg.channel.send('저런! 사용방법이 잘못되었어요\n`' + client.settings.prefix + 'help arch`로 도움말을 보면 도움이 될꺼에요')
   const m = await msg.channel.send('<a:__tri_loading:745878028093227118> 검색중...')
 
   if (flags['--aur']) {
