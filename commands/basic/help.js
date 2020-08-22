@@ -14,6 +14,7 @@ async function fn (client, msg, query) {
 
   if (str.length > 1) commands = commands.filter((cmd) => cmd.aliases.includes(str))
   commands.forEach((cmd) => {
+    if (cmd.hide) return
     let title = client.settings.prefix + cmd.aliases[0] + (cmd.etc || '') + ' '
     Object.keys(cmd.args).forEach((arg) => {
       title += '[' + arg + '] '
